@@ -72,8 +72,8 @@ class TranslatorBot(Plugin):
         except LangDetectException:
             return
         result = await self.translator.translate(evt.content.body, to_lang=atc.main_language)
-        if is_acceptable(result.source_language) or result.text == evt.content.body:
-            return
+        #if not is_acceptable(result.source_language) or result.text == evt.content.body:
+            #return
         await evt.respond(f"[{evt.sender}](https://matrix.to/#/{evt.sender}) said "
                           f"(in {self.translator.get_language_name(result.source_language)}): "
                           f"{result.text}")
