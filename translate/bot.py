@@ -67,7 +67,7 @@ class TranslatorBot(Plugin):
             return lang == atc.main_language or lang in atc.accepted_languages
 
         try:
-            if is_acceptable(langdetect.detect(evt.content.body)):
+            if not is_acceptable(langdetect.detect(evt.content.body)):
                 return
         except LangDetectException:
             return
